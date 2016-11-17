@@ -1,6 +1,10 @@
-export default (req,res,next) => {
-  if(req.headers.user === 'admin'){
-    return next();
-  }
-  return next('access error');
+
+
+export default async (req,res,next) => {
+
+    jdata = await getRaw();
+    if(jdata){
+      return next();
+    }
+    return next('Error get json middleware');
 };
